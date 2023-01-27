@@ -1,0 +1,213 @@
+{% load static %}
+<!doctype html>
+<html>
+	<head>
+		<title>HITA</title>
+		<link rel="shortcut icon" type="image/jpg" href="image/favicon.ico"/>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+		<style>
+		.logo
+		{   
+			width:128px; 
+			height:44px;
+		}
+
+		.profileLink
+		{
+			background:url("{% url 'home'%}") no-repeat;
+			width: 36px; height: 41px;
+				 background-position:-66px -58px;
+				 margin-right:20px;
+		}		
+			
+		.divSlider
+		{
+			height:200px;
+		}	
+			
+		.navbar-inverse
+		{
+			background-color:#f3f5fb;
+		}		
+		.willIcon
+		{
+			background: url("{% static 'images/hitasprite.png' %}") no-repeat;
+			display:inline-block;
+			width: 36px; height: 36px;
+			background-position: -10px -66px;
+		}
+		.leaseIcon
+		{
+			background: url("{% static 'images/hitasprite.png' %}") no-repeat;
+			display:inline-block;
+			 width: 36px; height: 36px;
+			background-position:-66px -10px;
+		}
+		.sellIcon
+		{
+			background: url("{% static 'images/hitasprite.png' %}") no-repeat;
+			display:inline-block;
+			width: 36px; height: 36px;
+			background-position: -10px -10px;
+		}
+		
+		#willid
+		{
+		 text-decoration:none;
+		}
+		
+		#leaseid
+		{
+		 text-decoration:none;
+		}
+		
+		#sellid
+		{
+		 text-decoration:none;
+		}
+		
+		body
+			{
+				font-family:"oxygen", sans-serif;
+			}
+		
+		.floatRight
+		{
+			float:right;
+		}
+		.servicesBox
+		{
+			border:1px solid black;
+			min-height:150px;
+			padding:10px;
+			margin:10px 0px 30px 0px;
+			text-decoration:none;
+			color:black;
+				
+			
+			
+		}		
+		#carouselExampleCaptions .carousel-inner
+		{
+			max-height:380px;
+		}
+		#carouselExampleCaptions
+		{
+			margin:20px 0 20px 0;
+		}
+		
+		
+		
+		 .profile-icon{
+            background: url("{% static 'images/hitasprite.png' %}") no-repeat;
+			display:inline-block;
+			width: 36px; height: 36px;
+			background-position: -68px -66px;
+			margin:0px 20px 0px 20px;
+
+        }
+		
+	
+		
+		
+        /* for search bar below */
+        .search-click {
+        
+       
+        border: 1px solid #ccc;
+        outline: none;
+        background-size: 22px;
+        background-position: 13px;
+        border-radius: 10px;
+        width: 50px;
+        height: 50px;
+        padding: 18px;
+        transition: all 0.5s;
+        
+        }
+        .search-click:focus {
+        width: 300px;
+        padding-left: 50px;
+        
+        }
+        .search-click {
+        position: relative;
+        overflow: hidden;
+        height: 50px;
+        }
+        .search-click input {
+        background: transparent;
+        border: 1px solid #ccc;
+        outline: none;
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: 0%;
+        padding: 10px;
+        }
+		
+		</style>
+	</head>
+	<body>
+		
+			<!-- {{data}} -->
+	
+		<nav class="navbar navbar-expand-sm navbar-light bg-light">
+			<div class="container-fluid">
+				
+					<a class="navbar-brand" href="{% url 'home'%}">
+						<img src="{% static 'images/hitalogo.jpg' %}" class="logo" />
+					</a>
+				<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div id="navbarCollapse" class="collapse navbar-collapse floatRight">
+				<ul class="nav navbar-nav ">
+					<li class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+						<div class="dropdown-menu">
+							<a href="{% url 'will'%}" class="dropdown-item">Will</a>
+							<a href="{% url 'lease'%}" class="dropdown-item">Lease</a>
+							<a href="{% url 'sell'%}" class="dropdown-item">Sell</a>
+							
+						</div>
+					</li>
+					<li class="nav-item">
+						<a href="{% url 'aboutus'%}" class="nav-link">About Us</a>
+					</li>
+					<li class="nav-item">
+						<a href="{% url 'contactus'%}" class="nav-link">Support</a> 
+						<!-- contactus is support -->
+					</li>
+
+				</ul>
+				
+				
+				</div>
+			</div>
+			
+			 <input type="text" class="search-click search-icon" name="" placeholder="search here..." />
+<!-- ********************************* -->
+
+
+			{% if user.is_authenticated %}  
+			     <a href="{% url 'profile' %}" class="profile-icon"></a> 
+			
+			{% else %}  
+				<a href="{% url 'login' %}" class="profile-icon"></a>
+			
+			{% endif %}  
+
+			
+		</nav>
+        <br>
+
+    <h1 style="text-align: center;">THANK YOU! Your Document has been created</h1>
+</body>
+</html>

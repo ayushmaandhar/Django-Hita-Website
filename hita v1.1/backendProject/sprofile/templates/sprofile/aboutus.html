@@ -1,0 +1,438 @@
+{% load static %}
+<!doctype html>
+<html>
+	<head>
+		<title>HITA</title>
+		<link rel="shortcut icon" type="image/jpg" href="image/favicon.ico"/>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
+		<style>
+		.logo
+		{   
+			width:128px;
+			height:44px;
+		}
+        
+        .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+	  
+	  .profileLink
+		{
+			background:url("{% url 'home'%}") no-repeat;
+			width: 36px; height: 41px;
+				 background-position:-66px -58px;
+				 margin-right:20px;
+		}		
+			
+		.divSlider
+		{
+			height:200px;
+		}	
+			
+		.navbar-inverse
+		{
+			background-color:#f3f5fb;
+		}	
+
+		.profile-icon{
+      background: url("{% static 'images/hitasprite.png' %}") no-repeat;
+			display:inline-block;
+			width: 36px; height: 36px;
+			background-position: -68px -66px;
+			margin:0px 20px 0px 20px;
+
+        }
+		
+	
+		
+		
+        /* for search bar below */
+        .search-click {
+        
+       
+        border: 1px solid #ccc;
+        outline: none;
+        background-size: 22px;
+        background-position: 13px;
+        border-radius: 10px;
+        width: 50px;
+        height: 50px;
+        padding: 18px;
+        transition: all 0.5s;
+        
+        }
+        .search-click:focus {
+        width: 300px;
+        padding-left: 50px;
+        
+        }
+        .search-click {
+        position: relative;
+        overflow: hidden;
+        height: 50px;
+        }
+        .search-click input {
+        background: transparent;
+        border: 1px solid #ccc;
+        outline: none;
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: 0%;
+        padding: 10px;
+        }
+
+ 
+      </style>
+
+	</head>
+	<body>
+	
+	
+		<nav class="navbar navbar-expand-sm navbar-light bg-light">
+			<div class="container-fluid">
+				
+					<a class="navbar-brand" href="{% url 'home'%}">
+						<img src="{% static 'images/hitalogo.jpg' %}" class="logo" />
+					</a>
+				<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div id="navbarCollapse" class="collapse navbar-collapse floatRight">
+				<ul class="nav navbar-nav ">
+					<li class="nav-item dropdown">
+						<a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+						<div class="dropdown-menu">
+							<a href="{% url 'will'%}" class="dropdown-item">Will</a>
+							<a href="{% url 'lease'%}" class="dropdown-item">Lease</a>
+							<a href="{% url 'sell'%}" class="dropdown-item">Sell</a>
+							
+						</div>
+					</li>
+					<li class="nav-item">
+						<a href="{% url 'aboutus'%}" class="nav-link">About Us</a>
+					</li>
+					<li class="nav-item">
+						<a href="{% url 'contactus'%}" class="nav-link">Support</a> 
+						<!-- contactus is support -->
+					</li>
+
+				</ul>
+				
+				
+				</div>
+			</div>
+			
+
+<!-- ********************************* -->
+
+
+			{% if user.is_authenticated %}  
+			     <a href="{% url 'profile' %}" class="profile-icon"></a> 
+			
+			{% else %}  
+				<a href="{% url 'login' %}" class="profile-icon"></a>
+			
+			{% endif %}  
+
+			   
+			
+			
+
+			
+		</nav>
+		<main>
+            <h1 class="visually-hidden">Heroes examples</h1>
+
+  <div class="px-4 py-5 my-5 text-center">
+    <img class="d-block mx-auto mb-4" src="{% static 'images/hitalogo.jpg'%}" alt="hitallc" width=168px;
+    height=64px;>
+    <h1 class="display-5 fw-bold">Our Vision</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4"> 
+        There has not been any material change to the Legal services sector for many years, despite the surrounding digital evolution. As a result, the Legal services sector is falling behind and is no longer as relevant to the consumer which will continue to erode without meaningful change.<br>  
+        <b>Hita</b> intends to disrupt the Legal services sector by incorporating digitalization as a core tenant of the industry. We will leverage a marketplace model that’s two-sided (1. The consumer, 2. The legal services personnel). The consumer will simply be matched to legal services personnel based on their legal needs as inputted (or instruction) by the consumer. The legal services personnel will manage the relationship with the consumer end to end with no middle step that involves the entity (Legal Services Marketplace) to create the necessary scalability and efficiency of the service.
+      </p>
+      <!-- <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold">Our Values</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4"><b>Hita</b> will provide the consumer <b>transparency</b> throughout their legal services journey, leveraging a digital <b>self-service</b> platform. The legal services personnel will be under contract with Legal Services Marketplace when fulfilling legal services on the Legal Services Marketplace platform. </p>
+      <!-- <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+        <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Primary button</button>
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+      </div> -->
+    </div>
+    <!-- <div class="overflow-hidden" style="max-height: 30vh;">
+      <div class="container px-5">
+        <img src="image/hitalawyer.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+      </div>
+    </div> -->
+  </div>
+
+  <div class="b-example-divider"></div>
+
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="{% static 'images/courthita.jpg'%}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Our goals and mission</h1>
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis rerum nihil vitae animi tempora commodi atque quaerat libero ab culpa iusto quod officia vel aperiam mollitia, veniam sit minima, fugit sint! Perferendis in aperiam dolorum! Quae iusto earum ea eum.</p>
+        <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="b-example-divider"> </div>
+
+  <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="px-4 pt-5 my-5 text-center border-bottom">
+        <h1 class="display-4 fw-bold">Our Founders</h1><br>
+        <div class="col-lg-6 mx-auto">
+        
+          <!-- <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+            <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Primary button</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+          </div> -->
+        </div>
+        <div class="container marketing">
+
+          <!-- Three columns of text below the carousel -->
+          <div class="row">
+            <div class="col-lg-6">
+              <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      
+              <h2>Anish Vibhute</h2>
+              <p>Founder (CEO)</p>
+              <p><a class="btn btn-secondary" href="https://www.linkedin.com/in/anish-vibhute-7248aa4">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-6">
+              <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      
+              <h2>Jaldip Modi</h2>
+              <p>Cofounder (COO)</p>
+              <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-6">
+              <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      
+              <h2>Thyagesh</h2>
+              <p>Cofounder (CTO)</p>
+              <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+
+            <div class="col-lg-6">
+              <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      
+              <h2>Peter Wheatley</h2>
+              <p>Cofounder (CSO) </p>
+              <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+          </div>
+        </div>
+        <div class="overflow-hidden" style="max-height: 30vh;">
+          <div class="container px-5">
+            
+          </div>
+        </div>
+      </div>
+  </div>
+
+  
+
+  <div class="b-example-divider"></div>
+
+  <div class="bg-dark text-secondary px-4 py-5 text-center">
+    <div class="py-5">
+      <!-- <h1 class="display-5 fw-bold text-white">policies</h1> -->
+      <div class="col-lg-6 mx-auto">
+        
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" class="btn btn-outline-light btn-lg px-4">
+            Privacy Policy</button>
+          <button type="button" class="btn btn-outline-light btn-lg px-4">
+            Cookie Policy</button>
+          <button type="button" class="btn btn-outline-light btn-lg px-4">
+            Use of Beacons</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="b-example-divider mb-0"></div>
+        </main>
+			   
+			   
+			 
+        <footer
+        class="text-center text-lg-start text-white"
+        style="background-color: #45526e "
+        >
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">
+            HITA LLC
+          </h6>
+          <p>
+            HITA more than a platform is an initiative to start democratising the Indian law as well as making it more accessible. 
+      It is a small step towards a much better judiciary system in India.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <hr class="w-100 clearfix d-md-none" />
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+          <p>
+            <a class="text-white"></a>
+          </p>
+          <p>
+            <a class="text-white">Will</a>
+          </p>
+          <p>
+            <a class="text-white">Lease</a>
+          </p>
+          <p>
+            <a class="text-white">Sell</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <hr class="w-100 clearfix d-md-none" />
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">
+            Useful links
+          </h6>
+          <p>
+            <a class="text-white">Your Account</a>
+          </p>
+          <p>
+            <a class="text-white">Become an Affiliate</a>
+          </p>
+          <p>
+            <a class="text-white">Shipping Rates</a>
+          </p>
+          <p>
+            <a class="text-white">Help</a>
+          </p>
+        </div>
+
+        <!-- Grid column -->
+        <hr class="w-100 clearfix d-md-none" />
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+          <p><i class="fas fa-home mr-3"></i> Pune, MH 411051, India</p>
+          <p><i class="fas fa-envelope mr-3"></i> hitaplatform@gmail.com</p>
+          <p><i class="fas fa-phone mr-3"></i> +91 xxxxxxxxxx</p>
+          <p><i class="fas fa-print mr-3"></i> +91 xxxxxxxxxx</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+
+    <hr class="my-3">
+
+    <!-- Section: Copyright -->
+    <section class="p-3 pt-0">
+      <div class="row d-flex align-items-center">
+        <!-- Grid column -->
+        <div class="col-md-7 col-lg-8 text-center text-md-start">
+          <!-- Copyright -->
+          <div class="p-3">
+            © 2022 Copyright:
+            <a class="text-white" href="https://mdbootstrap.com/">hita.com</a>
+          </div>
+          <!-- Copyright -->
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+          <!-- Facebook -->
+          <a
+             class="btn btn-outline-light btn-floating m-1"
+             class="text-white"
+             role="button"
+             ><i class="fab fa-facebook-f"></i
+            ></a>
+
+          <!-- Twitter -->
+          <a
+             class="btn btn-outline-light btn-floating m-1"
+             class="text-white"
+             role="button"
+             ><i class="fab fa-twitter"></i
+            ></a>
+
+          <!-- Google -->
+          <a
+             class="btn btn-outline-light btn-floating m-1"
+             class="text-white"
+             role="button"
+             ><i class="fab fa-google"></i
+            ></a>
+
+          <!-- Instagram -->
+          <a
+             class="btn btn-outline-light btn-floating m-1"
+             class="text-white"
+             role="button"
+             ><i class="fab fa-instagram"></i
+            ></a>
+        </div>
+        <!-- Grid column -->
+      </div>
+    </section>
+    <!-- Section: Copyright -->
+  </div>
+  <!-- Grid container -->
+</footer>
+    <!-- Footer -->
+  
+          </div>
+    </body>
+</html>  
